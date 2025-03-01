@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pexels Clone - Upload</title>
+
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        p {
+    font-size: 18px;
+    color: #555; /* Updated text color */
+    font-weight: bold;
+}
+
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            width: 100%;
+        }
+        /* Updated Spacing */
+.upload-container h2 {
+    margin-bottom: 15px; /* Added space below <h2> */
+}
+        
+
+        /* Upload Section */
+        .upload-container {
+            margin-top: 10px; /* Added space above <label> */
+    display: inline-block;
+    padding: 15px;
+    border: 2px dashed #333;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+        }
+
+        .upload-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .upload-box {
+            border: 2px dashed #333;
+            padding: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .upload-box:hover {
+            background-color: #e0e0e0;
+        }
+
+        .upload-box input {
+            display: none;
+        }
+
+        .preview {
+            margin-top: 20px;
+        }
+
+        .preview img {
+            max-width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Full-screen Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Button */
+        .upload-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .upload-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>UPLOAD IMAGE</h1>
+        
+    </header>
+
+    <!-- Upload Section -->
+    <section class="upload-container">
+        <P> <h1>Let's Play</h1></P>
+        <h2>Upload Your Image</h2>
+
+        <label class="upload-box">
+            Click to Upload an Image
+            <input type="file" accept="image/*" id="fileInput">
+        </label>
+        <div class="preview" id="previewContainer"></div>
+        <button class="upload-btn" onclick="uploadImage()">Upload</button>
+    </section>
+
+    <!-- Full-Screen Modal -->
+    <div class="modal" id="imageModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Pexels Clone | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const fileInput = document.getElementById("fileInput");
+        const previewContainer = document.getElementById("previewContainer");
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+
+        fileInput.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewContainer.innerHTML = `<img src="${e.target.result}" alt="Preview" onclick="openModal('${e.target.result}')">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function openModal(imageSrc) {
+            modalImage.src = imageSrc;
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        function uploadImage() {
+            if (fileInput.files.length > 0) {
+                alert("Image uploaded successfully!");
+            } else {
+                alert("Please select an image first.");
+            }
+        }
+    </script>
+
+</body>
+</html>
+ 

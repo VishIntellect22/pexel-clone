@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=C"width=device-width, initial-scale=1.0">
+    <title>Pexels Clone - categories</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #A77979;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #472D2D;
+            color: rgb(218, 188, 188);
+            padding: 15px 20px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: rgb(247, 243, 243);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Categories Section */
+        .categories {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .categories h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .category {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 35px;
+            color: rgb(24, 5, 5);
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: red;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #704F4F;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1> ( CATEGORIES )</h1>
+        
+    </header>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2>Different Pattern</h2>
+        <div class="gallery">
+            <div class="category">
+                <h3>Nature</h3>
+                <img src="https://images.pexels.com/photos/3476312/pexels-photo-3476312.jpeg" alt="Nature" onclick="openModal(this)">
+                <img src="https://images.pexels.com/photos/1271620/pexels-photo-1271620.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Trees" onclick="openModal(this)">
+            </div>
+
+            <div class="category">
+                <h3>Architecture</h3>
+                <img src="https://images.pexels.com/photos/29056528/pexels-photo-29056528/free-photo-of-modern-steel-and-glass-footbridge-in-forest-setting.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Architecture" onclick="openModal(this)">
+                <img src="https://images.pexels.com/photos/29664936/pexels-photo-29664936/free-photo-of-modern-architecture-in-casablanca-s-financial-district.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Building" onclick="openModal(this)">
+            </div>
+
+            <div class="category">
+                <h3>Animals</h3>
+                <img src="https://images.pexels.com/photos/60692/bird-animal-nature-strauss-60692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Animals" onclick="openModal(this)">
+                <img src="https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Wildlife" onclick="openModal(this)">
+            </div>
+
+            <div class="category">
+                <h3>Technology</h3>
+                <img src="https://media.istockphoto.com/id/1144645520/photo/busy-call-centre-in-operation.jpg?b=1&s=612x612&w=0&k=20&c=vib4nWV1c_PLKXZa6aqHDEU-fVBg6-WeIGfmik2zj2E=" alt="Technology" onclick="openModal(this)">
+                <img src="https://images.pexels.com/photos/3775620/pexels-photo-3775620.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Gadgets" onclick="openModal(this)">
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImg" src="" alt="Expanded View">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Pexels Clone | <a href="button">Privacy Policy</a></p>
+    </footer>
+
+    <!-- JavaScript for Modal -->
+    <script>
+        function openModal(imgElement) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImg");
+            modal.style.display = "flex";
+            modalImg.src = imgElement.src;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

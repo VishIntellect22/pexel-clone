@@ -1,0 +1,82 @@
+/* General Styles */
+body {
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #7858A6;
+    
+    
+}
+
+/* text styling */
+p {
+    color: rgb(127, 247, 247);
+}
+
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4C3575;
+    color: rgb(231, 228, 238);
+    padding: 15px 20px;
+
+}
+
+
+nav a {
+    color: rgb(209, 182, 182);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:h  {
+    text-decoration: underline;
+}
+
+/* Upload Section */
+.upload-section {
+    text-align: center;
+    margin: 15px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #000305;
+    color: rgb(94, 42, 42);
+    border: none;
+    cursor: pointer;
+}
+
+button:ho {
+    background-color: #555;
+}
+
+/* Image Gallery (CSS Grid) */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    padding: 15px;
+}
+
+.gallery img {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #5B4B8A;
+    color: rgb(7, 6, 8);;
+}
